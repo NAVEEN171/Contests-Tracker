@@ -1,0 +1,175 @@
+/* Light Mode Styles (default) */
+.book-mark-container {
+  user-select: none;
+  position: relative;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  z-index: 5;
+  background-color: white;
+}
+
+.book-mark {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid #bfdbfe;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.not-loading {
+  border: none;
+}
+
+.bookmark-icon {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.bookmark-top {
+  width: 18px;
+  height: 15px;
+  background-color: #bfdbfe;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.bookmark-top.saved {
+  background-color: #3a90ff; /* Darker blue when saved */
+}
+
+/* Bottom part container */
+.bookmark-bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Left triangle */
+.bookmark-left {
+  width: 50%;
+  height: 0;
+  border-right: 9px solid transparent;
+  border-top: 10px solid #bfdbfe;
+  border-left: transparent;
+  transition: border-top-color 0.3s ease-in-out;
+}
+
+.bookmark-left.saved {
+  border-top-color: #3a90ff;
+}
+
+/* Right triangle */
+.bookmark-right {
+  width: 50%;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-top: 10px solid #bfdbfe;
+  border-right: transparent;
+  transition: border-top-color 0.3s ease-in-out;
+}
+
+.bookmark-right.saved {
+  border-top-color: #3a90ff;
+}
+
+/* Animation property for angle */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Loading animation with moving border line */
+.book-mark-container.loader::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), transparent 70%, #3a90ff);
+  box-sizing: content-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Ensure the loading animation is behind the content */
+  padding: 3px;
+  border-radius: 5px;
+  animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+/* Dark Mode Styles */
+.dark-mode .book-mark-container {
+  background-color: #1e1e2d; /* Black background instead of white */
+}
+
+.dark-mode .book-mark {
+  background-color: #1e1e2d; /* Black background instead of white */
+  border-color: #3a4e7a; /* Slightly darker border color that works on dark background */
+}
+
+.dark-mode .bookmark-top {
+  background-color: #3a4e7a; /* Darker unsaved color that works on dark background */
+}
+
+.dark-mode .bookmark-top.saved {
+  background-color: #3a90ff; /* Keep the same saved color */
+}
+
+.dark-mode .bookmark-left {
+  border-top-color: #3a4e7a; /* Darker unsaved color */
+}
+
+.dark-mode .bookmark-left.saved {
+  border-top-color: #3a90ff; /* Keep the same saved color */
+}
+
+.dark-mode .bookmark-right {
+  border-top-color: #3a4e7a; /* Darker unsaved color */
+}
+
+.dark-mode .bookmark-right.saved {
+  border-top-color: #3a90ff; /* Keep the same saved color */
+}
+
+.dark-mode .book-mark-container.loader::after {
+  background-image: conic-gradient(from var(--angle), transparent 70%, #3a90ff);
+  /* Keep the same animation color */
+}
+
+/* Responsive styles remain the same */
+@media (max-width: 600px) {
+  .book-mark-container,
+  .book-mark {
+    width: 35px;
+    height: 35px;
+  }
+
+  .bookmark-top {
+    width: 14px;
+    height: 12px;
+  }
+
+  .bookmark-left,
+  .bookmark-right {
+    border-right-width: 7px;
+    border-left-width: 7px;
+    border-top-width: 8px;
+  }
+
+  .book-mark-container.loader::after {
+    padding: 2px;
+  }
+}

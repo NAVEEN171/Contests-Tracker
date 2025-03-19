@@ -1,0 +1,14 @@
+.basic_switch {
+  padding: 2px 15px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pagination {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}

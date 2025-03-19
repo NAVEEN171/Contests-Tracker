@@ -1,0 +1,128 @@
+@keyframes pulse-light {
+  0% {
+    background-color: #e5e7eb;
+  }
+  50% {
+    background-color: #d1d5db;
+  }
+  100% {
+    background-color: #e5e7eb;
+  }
+}
+
+@keyframes pulse-dark {
+  0% {
+    background-color: #282f42;
+  }
+  50% {
+    background-color: #3d4356;
+  }
+  100% {
+    background-color: #282f42;
+  }
+}
+
+.contest-card-loader {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: calc((100% - 20px) / 2);
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.contest-card-loader__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contest-card-loader__icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  margin-right: 1rem;
+  animation: pulse-light 1.5s infinite;
+}
+
+.contest-card-loader__title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contest-card-loader__title {
+  height: 1rem;
+  width: 12rem;
+  background-color: #d1d5db;
+  margin-bottom: 0.5rem;
+  animation: pulse-light 1.5s infinite;
+}
+
+.contest-card-loader__subtitle {
+  height: 0.75rem;
+  width: 8rem;
+  background-color: #e5e7eb;
+  animation: pulse-light 1.5s infinite;
+}
+
+.contest-card-loader__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contest-card-loader__line {
+  height: 1rem;
+  background-color: #d1d5db;
+  animation: pulse-light 1.5s infinite;
+}
+
+.contest-card-loader__line--wide {
+  width: 83.333333%;
+}
+
+.contest-card-loader__button {
+  height: 2.5rem;
+  background-color: #d1d5db;
+  border-radius: 0.25rem;
+  animation: pulse-light 1.5s infinite;
+}
+
+/* Dark Mode Styles */
+.contest-card-loader.dark-mode {
+  border: 1px solid #2c3142;
+  background-color: #1e2230;
+}
+
+.contest-card-loader.dark-mode .contest-card-loader__icon {
+  background-color: #2c3142;
+  animation: pulse-dark 1.5s infinite;
+}
+
+.contest-card-loader.dark-mode .contest-card-loader__title {
+  background-color: #2c3142;
+  animation: pulse-dark 1.5s infinite;
+}
+
+.contest-card-loader.dark-mode .contest-card-loader__subtitle {
+  background-color: #3d4356;
+  animation: pulse-dark 1.5s infinite;
+}
+
+.contest-card-loader.dark-mode .contest-card-loader__line {
+  background-color: #2c3142;
+  animation: pulse-dark 1.5s infinite;
+}
+
+.contest-card-loader.dark-mode .contest-card-loader__button {
+  background-color: #2c3142;
+  animation: pulse-dark 1.5s infinite;
+}
+
+@media (max-width: 768px) {
+  .contest-card-loader {
+    width: 100%;
+  }
+}
