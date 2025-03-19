@@ -131,7 +131,7 @@ const SavedContests = () => {
             if (savedContests.length === 0) {
                 return;
             }
-            const response = await fetch('http://localhost:5000/get-savedcontests', {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get-savedcontests`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

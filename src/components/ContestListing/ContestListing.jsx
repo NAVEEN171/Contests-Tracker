@@ -137,7 +137,7 @@ const ContestListing = () => {
             if (searchParams.has("Latest")) queryParams.append('Latest', searchParams.get("Latest"));
             if (searchParams.has("Active")) queryParams.append('Active', searchParams.get("Active"));
 
-            const url = `http://localhost:5000/api/get-contests/?${queryParams.toString()}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}/api/get-contests/?${queryParams.toString()}`;
 
             let response = await fetch(url);
             let data = await response.json();
