@@ -244,6 +244,20 @@
   background-color: #3d4356;
 }
 
+.contest-card__button--upcoming {
+  background-color: #ff8c38;
+  color: white;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 8px 16px;
+}
+
+.contest-card__button--upcoming:hover {
+  background-color: #e87c2d;
+}
+
 /* Media Queries for Responsiveness */
 
 @media (max-width: 600px) {

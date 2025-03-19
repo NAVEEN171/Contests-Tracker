@@ -84,7 +84,7 @@ const ContestCard = ({ contest }) => {
                     (
                         <a href={contestLink} target="_blank" rel="noopener noreferrer" >
 
-                            <button disabled={Status === "Upcoming"} className="contest-card__button contest-card__button--register">
+                            <button disabled={Status === "Upcoming"} className={`contest-card__button ${Status === "Active" ? "contest-card__button--register" : "contest-card__button--upcoming"}`}>
                                 {Status !== "Upcoming" ? "Register" : "Declared Soon"}
                             </button>
                         </a>
@@ -131,7 +131,7 @@ const SavedContests = () => {
             if (savedContests.length === 0) {
                 return;
             }
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get-savedcontests`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/get-savedcontests`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
